@@ -1,4 +1,4 @@
 package entitiy;
 
-public class Faculty {
+public class Faculty extends MemberRecord {
 }
