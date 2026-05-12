@@ -15,6 +15,7 @@ public class Author extends Person {
     public void newBook(Book book) {
         books.add(book);
     }
+
     public void showBook() {
         for(Book book : books) {
             System.out.println(book);

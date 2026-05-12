@@ -24,6 +24,7 @@ public class Library {
 
     public void newBook(Book book) {
         books.add(book);
+        System.out.println("Book added succesfully!");
     }
 
     public void lendBook(Book book, Reader reader) {

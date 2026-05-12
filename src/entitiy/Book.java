@@ -4,7 +4,7 @@ import enums.Status;
 
 import java.time.LocalDate;
 
-public class Book {
+public abstract class Book {
     private Long bookId;
     private Author author;
     private String name;
