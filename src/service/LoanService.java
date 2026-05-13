@@ -1,5 +1,8 @@
-package entity;
+package service;
 
+import entity.Bill;
+import entity.Book;
+import entity.MemberRecord;
 import enums.Status;
 
 import java.util.ArrayList;

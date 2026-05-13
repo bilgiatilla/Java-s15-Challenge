@@ -1,5 +1,5 @@
 import entity.*;
-import entity.LoanService;
+import service.LoanService;
 
 import java.util.List;
 import java.util.Scanner;
@@ -11,8 +11,6 @@ public class Main {
     static Library library = new Library("Central Library");
     static LoanService loanService = new LoanService();
 
-    static Author defaultAuthor = new Author(1L, "George Orwell");
-    static Category defaultCategory = new Category(1L, "Dystopia");
     static Student defaultMember = new Student(
             2L,
             1L,
@@ -24,11 +22,17 @@ public class Main {
     );
 
     static Long bookIdCounter = 1L;
-    static Long authorIdCounter = 10L;
+    static Long authorIdCounter = 10L;  
     static Long categoryIdCounter = 10L;
 
     public static void main(String[] args) {
         seedData();
+
+        Person p1 = new Author(99L, "Test Author");
+        Person p2 = new Librarian(100L, "Test Librarian", "123");
+
+        p1.whoYouAre();
+        p2.whoYouAre();
 
         boolean running = true;
 
@@ -104,16 +108,19 @@ public class Main {
     }
 
     public static void seedData() {
-        Book book = new Book(
-                bookIdCounter++,
-                "1984",
-                defaultAuthor,
-                defaultCategory,
-                100,
-                1
-        );
+        Author georgeOrwell = new Author(1L, "George Orwell");
+        Author tolkien = new Author(2L, "J. R. R. Tolkien");
+        Author sabahattinAli = new Author(3L, "Sabahattin Ali");
 
-        library.addBook(book);
+        Category dystopia = new Category(1L, "Dystopia");
+        Category novel = new Category(2L, "Novel");
+        Category fantastic = new Category(3L, "Fantastic");
+
+        library.addBook(new Book(bookIdCounter++, "1984", georgeOrwell, dystopia, 100, 1));
+        library.addBook(new Book(bookIdCounter++, "Animal Farm", georgeOrwell, dystopia, 80, 1));
+        library.addBook(new Book(bookIdCounter++, "The Lord Of The Rings Return Of The King", tolkien, fantastic, 150, 2));
+        library.addBook(new Book(bookIdCounter++, "Kuyucakli Yusuf", sabahattinAli, novel, 90, 1));
+
         library.addMember(defaultMember);
     }
 
